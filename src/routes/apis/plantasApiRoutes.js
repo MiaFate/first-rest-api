@@ -6,7 +6,7 @@ import * as plantasApiController from '../../controllers/apis/plantasApiControll
 router.post('/', plantasApiController.createPlanta);
 router.get('/', plantasApiController.getPlantas);
 router.get('/:plantaId', plantasApiController.getPlantaById);
-router.put('/:PlantaId', plantasApiController.updatePlantaById);
+router.put('/:plantaId', plantasApiController.updatePlantaById);
 router.delete('/:plantaId', plantasApiController.deletePlantaById);
 
 

@@ -1,54 +1,118 @@
-//import { response } from "express";
-
 const db = require("../../models");
-//const Sequelize = require('sequelize');
 
-export const createPlanta = (req, res) => {};
-export const getPlantas = async (req, res) => {
-    try{
-        const plantas = await db.Plantas.findAll();
-        let response = {
-          meta: {
-            status: 200,
-            total: plantas.length,
-          },
-          data: plantas,
-        };
-        res.json(response);
-    }catch(error){
-        res.status(500).json({
-            message: error.message,
-        });
+
+export const createPlanta = async (req, res) => {
+  try {
+    const { nombre, grupo, descripcion, temporada, ambiente } = req.body;
+    const planta = await db.Plantas.create({
+      nombre,
+      grupo,
+      descripcion,
+      temporada,
+      ambiente,
+    });
+    const response = {
+      meta: {
+        status: 200,
+        message: "Planta creada correctamente",
+      },
+      data: planta,
     };
-    
-  
-
-  /* db.Plantas.findAll()
-            .then(plantas => {
-
-                for(let i = 0; i < plantas.length; i++){
-
-                    plantas[i].setDataValue;
-                }
-
-                let respuesta = {
-
-                    meta: {
-                        
-                        status: 200,
-                        total: plantas.length,
-                        url: 'http://localhost:4000/plantas'
-                    },
-                    data: plantas
-                }
-
-                res.json(respuesta)
-            })
-            .catch(error => {
-
-                console.log(error);
-            }) */
+    res.status(200).json(response);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      message: error.message,
+    });
+  }
 };
-export const getPlantaById = (req, res) => {};
-export const updatePlantaById = (req, res) => {};
-export const deletePlantaById = (req, res) => {};
+export const getPlantas = async (req, res) => {
+  try {
+    const plantas = await db.Plantas.findAll();
+    const response = {
+      meta: {
+        status: 200,
+        message: "Plantas obtenidas correctamente",
+        total: plantas.length,
+      },
+      data: plantas,
+    };
+    res.status(200).json(response);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
+export const getPlantaById = async (req, res) => {
+  try {
+    const { plantaId } = req.params;
+    const planta = await db.Plantas.findByPk(plantaId);
+    const response = {
+      meta: {
+        status: 200,
+        message: "Planta encontrada",
+      },
+      data: planta,
+    };
+    res.status(200).json(response);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
+export const updatePlantaById = async (req, res) => {
+  try {
+    const { plantaId } = req.params;
+    const { nombre, grupo, descripcion, temporada, ambiente } = req.body;
+    await db.Plantas.update(
+      {
+        nombre,
+        grupo,
+        descripcion,
+        temporada,
+        ambiente,
+      },
+      {
+        where: {
+          id: plantaId,
+        },
+      }
+    );
+    const response = {
+      meta: {
+        status: 200,
+        message: `Planta con id = '${plantaId}', con nombre = '${nombre}' actualizada correctamente`,
+      },
+      data: req.body,
+    };
+    res.status(200).json(response);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
+export const deletePlantaById = async (req, res) => {
+  try {
+    const { plantaId } = req.params;
+    await db.Plantas.destroy({
+      where: {
+        id: plantaId,
+      },
+    });
+    const response = {
+      meta: {
+        status: 200,
+        message: `Planta con id = '${plantaId}' eliminada correctamente`,
+      },
+      data: req.body,
+    };
+    res.status(200).json(response);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};

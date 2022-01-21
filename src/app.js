@@ -5,6 +5,8 @@ const routerApi = require('./routes/api');
 
 const app = express();
 
+app.use(express.urlencoded({ extended: true }));
+
 app.set("pkg", pkg);
 
 app.use(morgan("dev"));
