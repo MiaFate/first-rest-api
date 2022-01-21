@@ -1,7 +1,7 @@
 import express from "express";
 import morgan from "morgan";
 import pkg from "../package.json";
-import routerApiPlantas from './routes/apis/plantasApiRoutes';
+const routerApi = require('./routes/api');
 
 const app = express();
 
@@ -18,6 +18,6 @@ app.get("/", (req, res) => {
   });
 });
 
-app.use('/plantas', routerApiPlantas);
+app.use('/api', routerApi);
 
 export default app;

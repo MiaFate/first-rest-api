@@ -10,4 +10,4 @@ router.put('/:PlantaId', plantasApiController.updatePlantaById);
 router.delete('/:plantaId', plantasApiController.deletePlantaById);
 
 
-export default router;
+module.exports = router;
