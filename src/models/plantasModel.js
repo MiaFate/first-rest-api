@@ -44,5 +44,6 @@ module.exports = (sequelize, dataTypes) => {
 
     const Plantas = sequelize.define(alias, cols, config);
 
+    sequelize.sync();
     return Plantas;
 }
