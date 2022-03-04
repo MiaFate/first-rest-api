@@ -5,7 +5,8 @@ const { check } = require("express-validator");
 import { checkEmail, checkUsername } from "../../helpers/customValidations";
 import { validateInput } from "../../middlewares";
 
-import * as usersApiController from "../../controllers/apis/usersApiController";
+//import * as usersApiController from "../../controllers/apis/usersApiController";
+const {register} = require('../../controllers/apis/usersApiController');
 
 router.post(
   "/register",
@@ -18,7 +19,7 @@ router.post(
     check("password", "la contraseña es obligatoria").not().isEmpty(),
     validateInput,
   ],
-  usersApiController.register
+  register
 );
 
 //router.get("/", usersApiController.getUsers);

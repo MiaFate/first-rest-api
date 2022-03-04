@@ -1,7 +1,7 @@
 const db = require("../../models");
 
 
-export const createPlanta = async (req, res) => {
+const createPlanta = async (req, res) => {
   try {
     const { nombre, grupo, descripcion, temporada, ambiente } = req.body;
     const planta = await db.Plantas.create({
@@ -26,7 +26,7 @@ export const createPlanta = async (req, res) => {
     });
   }
 };
-export const getPlantas = async (req, res) => {
+const getPlantas = async (req, res) => {
   try {
     const plantas = await db.Plantas.findAll();
     const response = {
@@ -44,7 +44,7 @@ export const getPlantas = async (req, res) => {
     });
   }
 };
-export const getPlantaById = async (req, res) => {
+const getPlantaById = async (req, res) => {
   try {
     const { plantaId } = req.params;
     const planta = await db.Plantas.findByPk(plantaId);
@@ -62,7 +62,7 @@ export const getPlantaById = async (req, res) => {
     });
   }
 };
-export const updatePlantaById = async (req, res) => {
+const updatePlantaById = async (req, res) => {
   try {
     const { plantaId } = req.params;
     const { nombre, grupo, descripcion, temporada, ambiente } = req.body;
@@ -94,7 +94,7 @@ export const updatePlantaById = async (req, res) => {
     });
   }
 };
-export const deletePlantaById = async (req, res) => {
+const deletePlantaById = async (req, res) => {
   try {
     const { plantaId } = req.params;
     await db.Plantas.destroy({
@@ -116,3 +116,5 @@ export const deletePlantaById = async (req, res) => {
     });
   }
 };
+
+module.exports = { createPlanta, getPlantas, getPlantaById, updatePlantaById, deletePlantaById };

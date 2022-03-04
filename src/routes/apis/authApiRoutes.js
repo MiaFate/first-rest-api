@@ -5,7 +5,8 @@ const { check } = require("express-validator");
 //import { checkEmail, checkUsername } from "../../helpers/customValidations";
 import { validateInput } from "../../middlewares";
 
-import * as authApiController from "../../controllers/apis/authApiController";
+//import * as authApiController from "../../controllers/apis/authApiController";
+const { login } = require('../../controllers/apis/authApiController');
 
 router.get(
   "/login",
@@ -14,7 +15,7 @@ router.get(
     check("password", "la contraseña es obligatoria").not().isEmpty(),
     validateInput,
   ],
-  authApiController.login
+  login
 );
 
 module.exports = router;

@@ -4,13 +4,14 @@ const router = Router();
 
 const {checkToken} = require('../../middlewares');
 
-import * as plantasApiController from '../../controllers/apis/plantasApiController';
+//import * as plantasApiController from '../../controllers/apis/plantasApiController';
+const { createPlanta, getPlantas, getPlantaById, updatePlantaById, deletePlantaById } = require('../../controllers/apis/plantasApiController');
 
-router.post('/', checkToken, plantasApiController.createPlanta);
-router.get('/', plantasApiController.getPlantas);
-router.get('/:plantaId', plantasApiController.getPlantaById);
-router.put('/:plantaId', checkToken, plantasApiController.updatePlantaById);
-router.delete('/:plantaId', checkToken, plantasApiController.deletePlantaById);
+router.post('/', checkToken, createPlanta);
+router.get('/', getPlantas);
+router.get('/:plantaId', getPlantaById);
+router.put('/:plantaId', checkToken, updatePlantaById);
+router.delete('/:plantaId', checkToken, deletePlantaById);
 
 
 module.exports = router;
