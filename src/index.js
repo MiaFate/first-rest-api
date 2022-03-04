@@ -1,7 +1,8 @@
 //import app from './app';
 
-import express from "express";
-import morgan from "morgan";
+const express = require('express');
+const morgan = require('morgan');
+//import morgan from "morgan";
 
 const routerApi = require("./routes/api");
 const app = express();
