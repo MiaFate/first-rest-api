@@ -29,6 +29,8 @@ export const register = async (req, res) => {
   }
 };
 
+
+
 export const getUsers = async (req, res) => {
   try {
     const users = await db.Users.findAll({
