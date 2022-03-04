@@ -1,7 +1,7 @@
 const db = require("../../models");
 const bcrypt = require("bcryptjs");
 const createJWT = require("../../helpers/createJWT");
-export const login = async (req, res) => {
+const login = async (req, res) => {
   try {
     const user = await db.Users.findOne({
       where: {
@@ -29,3 +29,5 @@ export const login = async (req, res) => {
     });
   }
 };
+
+module.exports = { login };

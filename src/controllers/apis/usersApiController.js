@@ -3,7 +3,7 @@
 const db = require("../../models");
 const bcrypt = require("bcryptjs");
 
-export const register = async (req, res) => {
+const register = async (req, res) => {
   try {
     req.body.password = await bcrypt.hash(req.body.password, 10);
   const { username, email, password, roleId } = req.body;
@@ -31,7 +31,7 @@ export const register = async (req, res) => {
 
 
 
-export const getUsers = async (req, res) => {
+const getUsers = async (req, res) => {
   try {
     const users = await db.Users.findAll({
       include: {
@@ -55,3 +55,5 @@ export const getUsers = async (req, res) => {
     });
   }
 };
+
+module.exports = { register, getUsers };
