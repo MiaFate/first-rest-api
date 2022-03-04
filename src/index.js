@@ -1,7 +1,7 @@
 //import app from './app';
-
-const express = require('express');
-const morgan = require('morgan');
+//const app = require('./app');
+const express = require("express");
+const morgan = require("morgan");
 //import morgan from "morgan";
 
 const routerApi = require("./routes/api");
@@ -15,6 +15,5 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/api", routerApi);
-
 app.listen(process.env.PORT || 4000);
 console.log("server listening on port", 4000);
