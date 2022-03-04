@@ -2,7 +2,7 @@ import { Router } from "express";
 
 const router = Router();
 const { check } = require("express-validator");
-import { checkEmail, checkUsername } from "../../helpers/customValidations";
+//import { checkEmail, checkUsername } from "../../helpers/customValidations";
 import { validateInput } from "../../middlewares";
 
 import * as authApiController from "../../controllers/apis/authApiController";
