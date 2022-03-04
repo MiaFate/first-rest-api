@@ -1,4 +1,5 @@
-import {Router} from 'express';
+//import {Router} from 'express';
+const {Router} = require("express");
 const router = Router();
 
 const {checkToken} = require('../../middlewares');

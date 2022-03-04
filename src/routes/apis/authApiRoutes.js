@@ -1,5 +1,5 @@
-import { Router } from "express";
-
+//import { Router } from "express";
+const {Router} = require("express");
 const router = Router();
 const { check } = require("express-validator");
 //import { checkEmail, checkUsername } from "../../helpers/customValidations";
