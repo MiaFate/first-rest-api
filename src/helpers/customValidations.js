@@ -1,6 +1,6 @@
 const db = require("../models");
 
-export const checkEmail = async (email) => {
+const checkEmail = async (email) => {
   const result = await db.Users.findOne({
     where: {
       email: email,
@@ -10,8 +10,7 @@ export const checkEmail = async (email) => {
     throw new Error("El email ya existe");
   }
 };
-
-export const checkUsername = async (username) => {
+const checkUsername = async (username) => {
   const result = await db.Users.findOne({
     where: {
       username: username,
@@ -21,3 +20,4 @@ export const checkUsername = async (username) => {
     throw new Error("El nombre de usuario ya existe");
   }
 };
+module.exports = { checkEmail, checkUsername };
