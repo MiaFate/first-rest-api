@@ -1,5 +1,6 @@
 //import app from './app';
 //const app = require('./app');
+const cors = require('cors');
 const express = require("express");
 const morgan = require("morgan");
 //import morgan from "morgan";
@@ -8,6 +9,7 @@ const routerApi = require("./routes/api");
 const app = express();
 const path = require("path");
 
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 
