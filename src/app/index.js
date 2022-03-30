@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {render} from "react-dom";
 
-class App extends Component {
+/* class App extends Component {
     render() {
         return (
             <div>
@@ -9,6 +9,10 @@ class App extends Component {
             </div>
         );
     }
-}
+} */
+const element = React.createElement('div', {
+    className: 'container',
+    children: 'Hello World',
+  })
 
-render(<App/>, document.getElementById("app"));
+render(element, document.getElementById("app"));
