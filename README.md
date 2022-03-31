@@ -6,5 +6,7 @@ me estoy apoyando del siguiente tutorial de Fazt pero NO se utilizara MongoDB en
 
 [Nodejs REST API con JWT y Roles (Autorización y Autenticación) & Mongodb](https://www.youtube.com/watch?v=lV7mxivGX_I&t=886s)
 
+HOME de la API: [https://apiplantas.pochitacode.com](https://apiplantas.pochitacode.com)
+
 API en funcionamiento: [https://apiplantas.pochitacode.com/api/plantas](https://apiplantas.pochitacode.com/api/plantas)
 .

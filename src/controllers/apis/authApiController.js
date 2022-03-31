@@ -1,8 +1,9 @@
 const db = require("../../models");
 const bcrypt = require("bcryptjs");
 const createJWT = require("../../helpers/createJWT");
-const login = async (req, res) => {
+const login = async (req, res) => {    
   try {
+    
     const user = await db.Users.findOne({
       where: {
         email: req.body.email,
